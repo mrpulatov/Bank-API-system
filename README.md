@@ -72,7 +72,7 @@ python app.py
 - **URL**: `http://localhost:3000/user/update_info`
 - **Method**: `POST`
 - **JSON format**: `{'name': name, 'address': address, 'phone_number': phone_number, 'email': email, 'username': username, 'password': 'password'}`
-- **Return JSON format**: `{'status': 'success', 'action': 'update_user_data'}` or `{'status': 'fail', 'action': 'update_user_data', 'error_message': 'user not found'}`
+- **Return JSON format**: `{'status': 'success', 'action': 'update_user_data'}` or `{'status': 'fail', 'action': 'update_user_data', 'error_message': 'username or password is wrong'}`
 
 #### Get all credits for particular user
 

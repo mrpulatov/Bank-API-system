@@ -101,7 +101,7 @@ def update_user_data(data, db):
     result = db.session.execute(sql)
     user = result.fetchone()
     if user is None:
-        return {'status': 'fail', 'action': 'update_user_data', 'error_message': 'user not found'}
+        return {'status': 'fail', 'action': 'update_user_data', 'error_message': 'username or password is wrong'}
     else:
         user_id = user[1]
         name = data['name']
