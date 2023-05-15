@@ -94,7 +94,7 @@ def get_repayment_schedule():
 
 
 # route for deposit clients to invest money
-@app.route('/user/invest', methods=['PUT'])
+@app.route('/user/invest', methods=['POST'])
 def invest():
     # data json format is {'user_id': user_id, 'amount': amount}
     data = request.get_json()
@@ -104,7 +104,7 @@ def invest():
 
 
 # route for credit client to take a credit
-@app.route('/user/take_credit', methods=['PUT'])
+@app.route('/user/take_credit', methods=['POST'])
 def take_credit():
     # data json format is {'user_id': user_id, 'credit_amount': credit_amount}
     data = request.get_json()
@@ -115,7 +115,7 @@ def take_credit():
 
 
 # route for credit client to pay a credit
-@app.route('/user/pay_credit', methods=['PUT'])
+@app.route('/user/pay_credit', methods=['POST'])
 def pay_credit():
     # data json format is {'user_id': user_id, 'credit_id': credit_id}
     data = request.get_json()

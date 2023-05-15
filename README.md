@@ -90,21 +90,21 @@ python app.py
 #### Route for deposit clients to invest money
 
 - **URL**: `http://localhost:3000/user/invest`
-- **Method**: `PUT`
+- **Method**: `POST`
 - **JSON format**: `{'user_id': user_id, 'amount': amount}`
 - **Return JSON format**: `{'status': 'success', 'action': 'invest'}` or `{'status': 'fail', 'action': 'invest', 'error_message': 'account is not exist'}`
 
 #### Route for credit client to take a credit
 
 - **URL**: `http://localhost:3000/user/take_credit`
-- **Method**: `PUT`
+- **Method**: `POST`
 - **JSON format**: `{'user_id': user_id, 'credit_amount': credit_amount}`
 - **Return JSON format**: `{'status': 'success', 'action': 'take_credit'}` or `{'status': 'fail', 'action': 'take_credit', 'error_message': 'user is not a credit client'}` or `{'status': 'fail', 'action': 'take_credit', 'error_message': 'credit allocation is not possible'}`
 
 #### Route for credit client to pay a credit
 
 - **URL**: `http://localhost:3000/user/pay_credit`
-- **Method**: `PUT`
+- **Method**: `POST`
 - **JSON format**: `{'user_id': user_id, 'credit_id': credit_id, 'amount_paid': amount}`
 - **Return JSON format**: `{'status':'success','action':'pay_credit'}` or
 `{'status':'fail','action':'pay_credit','error_message':'credit not found'}` or
