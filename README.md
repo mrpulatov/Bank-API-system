@@ -32,6 +32,7 @@ Installation of this project on windows by using venv which is located at the sa
 ```bash
 python -m venv venv
 venv\Scripts\activate
+pip install -r requirements.txt
 python app.py
 ```
     

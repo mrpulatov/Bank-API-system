@@ -129,6 +129,3 @@ if __name__ == '__main__':
     # run the server on port 5000 and host it on the local machine.
     app.run(host='0.0.0.0', port=3000)
 
-
-# pip freeze and save requirements.txt
-# pip freeze > requirements.txt
