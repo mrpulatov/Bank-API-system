@@ -70,8 +70,8 @@ python app.py
 #### Update user information
 
 - **URL**: `http://localhost:3000/user/update_info`
-- **Method**: `PUT`
-- **JSON format**: `{'user_id': user_id, 'name': name, 'address': address, 'phone_number': phone_number, 'email': email, 'user_type': user_type, 'username': username}`
+- **Method**: `POST`
+- **JSON format**: `{'name': name, 'address': address, 'phone_number': phone_number, 'email': email, 'username': username, 'password': 'password'}`
 - **Return JSON format**: `{'status': 'success', 'action': 'update_user_data'}` or `{'status': 'fail', 'action': 'update_user_data', 'error_message': 'user not found'}`
 
 #### Get all credits for particular user

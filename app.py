@@ -59,7 +59,7 @@ def user_info():
 
 
 # route to update user information
-@app.route('/user/update_info', methods=['PUT'])
+@app.route('/user/update_info', methods=['POST'])
 def update_info():
     # data json format is {'user_id': user_id, 'name': name, 'address': address, 'phone_number': phone_number,
     # 'email': email,  'user_type': user_type, 'username': username}
