@@ -86,9 +86,10 @@ def take_credit_for_user(data, db):
         return {'status': 'fail', 'action': 'take_credit', 'error_message': 'user is not a credit client'}
 
     # check if user is has a credit
-    user_balance = db.session.execute(
-        text('SELECT balance FROM credit_clients WHERE client_id = %s' % user_id)).fetchone()
-    if user_balance[0] < 0:
+    has_credit = db.session.execute(
+        text('SELECT id FROM credit WHERE account_id = %s' % user_id)).fetchone()
+    if has_credit is not None:
+        print(has_credit)
         return {'status': 'fail', 'action': 'take_credit', 'error_message': 'user already has active credit'}
 
     # check if total waiting balance of all deposit clients is more or equal to asked credit amount
