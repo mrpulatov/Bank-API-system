@@ -88,7 +88,7 @@ def get_user_data(account_id, db):
             user = result.fetchone()
             return {'status': 'success', 'name': user[0], 'address': user[1], 'phone_number': user[2], 'email': user[3],
                     'user_type': user_type[0], 'user_id': account_id, 'action': 'get_user_data',
-                    'balance_working': user[6], 'balance_wait': user[7]}
+                    'balance_working': user[4], 'balance_wait': user[5]}
 
 
 # function to update user data, takes user id and return final status

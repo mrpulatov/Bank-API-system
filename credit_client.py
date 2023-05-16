@@ -173,7 +173,7 @@ def pay_credit_for_user(data, db):
         return {'status': 'fail', 'action': 'pay_credit', 'error_message': 'credit not found'}
 
     # check if user is a credit client
-    credit_client = db.session.execute(text('SELECT client_id FROM credit_clients WHERE client_id = %s' % user_id)).fetchone()
+    credit_client = db.session.execute(text('SELECT client_id, balance FROM credit_clients WHERE client_id = %s' % user_id)).fetchone()
     if not credit_client:
         return {'status': 'fail', 'action': 'pay_credit', 'error_message': 'user is not a credit client'}
 
