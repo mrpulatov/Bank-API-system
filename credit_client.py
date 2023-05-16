@@ -105,17 +105,19 @@ def take_credit_for_user(data, db):
 
     # collect money from each deposit client waiting balance and create credit record
     remaining_amount = credit_amount
+    num_clients = len(deposit_clients)
+    allocation_amount = remaining_amount / num_clients
     for client in deposit_clients:
         if remaining_amount == 0:
             break
-        allocation_amount = min(remaining_amount, client[8])
-        remaining_amount -= allocation_amount
+        allocation = min(allocation_amount, client[8])
+        remaining_amount -= allocation
         db.session.execute(
             text('UPDATE deposit_clients SET balance_wait = balance_wait - %s WHERE client_id = %s' % (
-                allocation_amount, client[0])))
+                allocation, client[0])))
         db.session.execute(
             text('UPDATE deposit_clients SET balance_working = balance_working + %s WHERE client_id = %s' % (
-                allocation_amount, client[0])))
+                allocation, client[0])))
 
     interest = credit_amount * 0.2
     final_price = credit_amount + interest
@@ -136,12 +138,12 @@ def take_credit_for_user(data, db):
     for client in deposit_clients:
         if remaining_amount == 0:
             break
-        allocation_amount = min(remaining_amount, client[8])
-        remaining_amount -= allocation_amount
+        allocation = min(remaining_amount, client[8])
+        remaining_amount -= allocation
         db.session.execute(
             text('INSERT INTO credit_allocations (credit_id, deposit_client_id, credit_client_id, amount_allocated) '
                  'VALUES (%s, %s, %s, %s)' % (credit_id, client[0], user_id,
-                                              allocation_amount)))
+                                              allocation)))
 
     # create repayment schedule for 6 months from today's date
     due_date = datetime.now() + timedelta(days=30)
